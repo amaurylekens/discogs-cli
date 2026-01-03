@@ -1,0 +1,1 @@
+"""Discogs CLI TUI package."""

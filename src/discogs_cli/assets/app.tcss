@@ -1,0 +1,12 @@
+Screen {
+  align: center middle;
+}
+
+#welcome {
+  padding: 1 2;
+  border: tall $accent;
+}
+
+#ascii-art {
+  text-align: center;
+}
