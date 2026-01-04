@@ -38,3 +38,5 @@ This repository contains a Python Textual TUI scaffold. Keep new features aligne
 - Store secrets in `.env` or a user config file and add it to `.gitignore`.
 - OAuth1 uses `DISCOGS_CONSUMER_KEY` and `DISCOGS_CONSUMER_SECRET`; the app prompts for a verifier at startup and keeps the access token in-memory for the session.
 - Discogs API docs: https://www.discogs.com/developers
+- discogs_client repo: https://github.com/joalla/discogs_client/tree/master
+- discogs_client docs: https://python3-discogs-client.readthedocs.io/en/latest/index.html

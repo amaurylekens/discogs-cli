@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from authlib.integrations.requests_client import OAuth1Session
+import discogs_client
 
 from discogs_cli.config import AppConfig, OAuthConfig
 from discogs_cli.services.oauth import OAuthToken
@@ -14,19 +14,18 @@ class DiscogsClient:
     oauth_config: OAuthConfig
     token: OAuthToken | None = None
 
-    def session(self) -> OAuth1Session:
+    def client(self) -> discogs_client.Client:
         if not self.token:
             raise RuntimeError("OAuth token missing; authenticate before making API calls.")
-        session = OAuth1Session(
-            self.oauth_config.consumer_key,
-            self.oauth_config.consumer_secret,
+        return discogs_client.Client(
+            self.app_config.user_agent,
+            consumer_key=self.oauth_config.consumer_key,
+            consumer_secret=self.oauth_config.consumer_secret,
             token=self.token.token,
-            token_secret=self.token.secret,
+            secret=self.token.secret,
         )
-        session.headers.update({"User-Agent": self.app_config.user_agent})
-        return session
 
     def healthcheck(self) -> bool:
         # Replace with a real API call.
-        # Example: session.get(f"{self.app_config.api_base_url}/database/search")
+        # Example: self.client().identity()
         return True
