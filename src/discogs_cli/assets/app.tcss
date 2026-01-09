@@ -1,0 +1,17 @@
+Screen {
+    layout: vertical;
+}
+
+#ascii-header-logo {
+    content-align: center middle;
+    padding: 1 0;
+}
+
+#ascii-header-status {
+    content-align: right bottom;
+    padding: 0 2 1 2;
+}
+
+#main-screen {
+    padding: 1 2;
+}
