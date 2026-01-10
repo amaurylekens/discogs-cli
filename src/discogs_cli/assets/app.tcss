@@ -74,9 +74,11 @@ AsciiHeader {
 }
 
 #oauth-url {
-    padding: 1 0;
-    text-style: bold;
-    color: $accent;
+    margin: 1 0;
+}
+
+#oauth-copy {
+    width: 12;
 }
 
 #oauth-error {

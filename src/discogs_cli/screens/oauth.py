@@ -21,7 +21,8 @@ class OAuthScreen(ModalScreen[None]):
                     "Open the URL in your browser, authorize the app, then paste the verifier.",
                     id="oauth-instructions",
                 )
-                yield Static("", id="oauth-url")
+                yield Input("", id="oauth-url", disabled=True)
+                yield Button("Copy URL", id="oauth-copy", variant="default")
                 yield Static("", id="oauth-error")
                 yield Input(placeholder="Verifier code", id="oauth-verifier")
                 with Horizontal(id="oauth-actions"):
@@ -35,11 +36,18 @@ class OAuthScreen(ModalScreen[None]):
             self.query_one("#oauth-error", Static).update(str(exc))
             return
         self._authorize_url = request.authorize_url
-        self.query_one("#oauth-url", Static).update(self._authorize_url)
+        self.query_one("#oauth-url", Input).value = self._authorize_url
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "oauth-cancel":
             self.dismiss(None)
+            return
+        if event.button.id == "oauth-copy":
+            if self._authorize_url:
+                self.app.copy_to_clipboard(self._authorize_url)
+                self.query_one("#oauth-error", Static).update("URL copied to clipboard.")
+            else:
+                self.query_one("#oauth-error", Static).update("No authorization URL available.")
             return
         if event.button.id != "oauth-submit":
             return

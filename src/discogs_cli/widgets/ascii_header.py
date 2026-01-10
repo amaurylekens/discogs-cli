@@ -11,6 +11,7 @@ from discogs_cli.widgets.auth_status import AuthStatusWidget
 
 class AsciiHeader(Widget):
     """Header widget that renders the Discogs ASCII logo."""
+    can_focus_children = True
 
     def compose(self) -> ComposeResult:
         logo = (
