@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True)
+@dataclass
 class AuthStatus:
     authorised: bool = False
     account: str | None = None

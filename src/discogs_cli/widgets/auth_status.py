@@ -14,6 +14,12 @@ class AuthStatusWidget(Horizontal):
         yield Static(self._status_text(self.app.auth_status), id="auth-status-text")
         yield Button("Authorize", id="auth-status-button", variant="default")
 
+    def on_mount(self) -> None:
+        self.update_status(self.app.auth_status)
+
+    def update_status(self, status: AuthStatus) -> None:
+        self.query_one("#auth-status-text", Static).update(self._status_text(status))
+
     @staticmethod
     def _status_text(status: AuthStatus) -> str:
         if status.authorised:
