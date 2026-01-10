@@ -11,6 +11,7 @@ requires-python = ">=3.11"
 dependencies = [
   "textual>=0.52.0",
   "discogs-client>=2.3.0",
+  "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
