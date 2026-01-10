@@ -30,7 +30,7 @@ This repository contains a Python Textual TUI scaffold. Keep new features aligne
 - Keep unit tests fast and deterministic; mock network calls by default.
 
 ## Commit & Pull Request Guidelines
-- No commit history exists yet; adopt Conventional Commits (`feat:`, `fix:`, `docs:`).
+- Adopt naming conventions in GIT.md
 - PRs should include: a short description, linked issue (if any), and test evidence or rationale for skipping.
 
 ## Security & Configuration Tips
