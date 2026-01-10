@@ -2,16 +2,93 @@ Screen {
     layout: vertical;
 }
 
+AsciiHeader {
+    layout: vertical;
+    height: auto;
+}
+
 #ascii-header-logo {
+    width: 100%;
     content-align: center middle;
     padding: 1 0;
 }
 
-#ascii-header-status {
-    content-align: right bottom;
+#auth-status {
+    width: 100%;
+    align: right middle;
+    height: auto;
     padding: 0 2 1 2;
 }
 
 #main-screen {
+    align: center middle;
+    height: 1fr;
     padding: 1 2;
+}
+
+#main-content {
+    width: 60;
+    padding: 1 2;
+}
+
+#main-title {
+    text-style: bold;
+}
+
+#main-subtitle {
+    color: $text-muted;
+    padding: 0 0 1 0;
+}
+
+#auth-status-text {
+    width: 1fr;
+    content-align: right middle;
+    padding: 0;
+}
+
+#auth-status-button {
+    border: none;          /* removes the “frame” that you’re reading as padding */
+    min-width: 12;
+    height: 1;
+    padding: 0 1;
+}
+
+#auth-status-button:hover {
+    background: $background-darken-1;
+}
+
+#oauth-dialog {
+    width: 72;
+    padding: 1 2;
+    border: solid $primary;
+    background: $surface;
+}
+
+#oauth-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#oauth-instructions {
+    color: $text-muted;
+}
+
+#oauth-url {
+    padding: 1 0;
+    text-style: bold;
+    color: $accent;
+}
+
+#oauth-error {
+    color: $error;
+    padding: 0 0 1 0;
+}
+
+#oauth-verifier {
+    margin: 1 0;
+}
+
+#oauth-actions {
+    align: right middle;
+    height: 3;
 }
